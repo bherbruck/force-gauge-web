@@ -27,7 +27,7 @@ export class ModbusRTUService {
   }
 
   isConnected(): boolean {
-    return (
+    return !!(
       this.port.readable &&
       this.port.writable &&
       !this.port?.readable.locked &&
