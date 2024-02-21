@@ -2,8 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { Chart, type AxisOptions } from "react-charts";
 import { SerialError } from "./components/SerialError";
 import { ModbusRTUService } from "./lib/modbus/modbusRTU";
-import { twMerge } from "tailwind-merge";
-import clsx from "clsx";
 
 type Datum = {
   x: number;
@@ -23,10 +21,10 @@ const getReading = async (modbus: ModbusRTUService) => {
 
 const App = () => {
   const [modbus, setModbus] = useState<ModbusRTUService>();
+  // @ts-expect-error not implemented
   const [force, setForce] = useState<number>();
-  // @ts-expect-error set not implemented
+  // @ts-expect-error not implemented
   const [sliceSize, setSliceSize] = useState(100);
-  // fill with sliceSize zeros
   const [timeseries, setTimeseries] = useState<number[]>([]);
   const [peaks, setPeaks] = useState<number[]>([]);
 
